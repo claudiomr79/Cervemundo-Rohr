@@ -1,9 +1,11 @@
-import { NavBar } from "./components/NavBar";
+import { NavBar } from "./components/header/NavBar";
+import 'materialize-css/dist/css/materialize.min.css';
+import {ItemListContainer} from "./components/ItemListContainer"
 
 const App = () =>(
 <>
     <NavBar/>
-    <h5>Las ofertas de la semana</h5>
+    <ItemListContainer greeting= {"Bienvenido a Cervemundo"}/>
 </> 
 )
 
