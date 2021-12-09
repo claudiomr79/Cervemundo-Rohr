@@ -1,6 +1,6 @@
 import { NavBar } from "./components/header/NavBar";
-import 'materialize-css/dist/css/materialize.min.css';
 import {ItemListContainer} from "./components/ItemListContainer"
+import 'bootswatch/dist/sketchy/bootstrap.min.css'; //bootswatch
 
 const App = () =>(
 <>
