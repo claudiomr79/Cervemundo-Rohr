@@ -5,10 +5,10 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 export const NavBar = () => {
   return (
-    <div className="header">
-      <Navbar className="px-3" collapseOnSelect expand="lg" variant="dark" bg="primary">
-        <Navbar.Brand>CerveMundo</Navbar.Brand>
+    <div id="header">
+      <Navbar className="px-2" collapseOnSelect expand="lg" variant="dark" bg="primary">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand>CerveMundo</Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown title="Tipos de productos">
@@ -17,11 +17,10 @@ export const NavBar = () => {
               <NavDropdown.Item>Barril de 30l</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav>
-            <Nav.Link>Productos</Nav.Link>
-            <CartWidget />
-          </Nav>
         </Navbar.Collapse>
+        <Nav style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}} >
+            <CartWidget />
+        </Nav>
       </Navbar>
     </div>
   );

@@ -1,12 +1,17 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-#centrar{
-    margin: 16px;
+ul{
     display: flex;
     background-color:white;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 20px;
 }
 #contador{
     display: flex;
@@ -16,3 +21,10 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+li{
+    padding: 4px;
+}
+#header{
+    height: 10%;
+}
+
