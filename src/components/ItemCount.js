@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import {Card, Button } from 'react-bootstrap'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,24 +25,21 @@ export default function ItemCount({stock,initial,onAdd}) {
     }
 
     return (
-      <div>
-        <Card style={{ width: "16rem"}}>
-          <Card.Img variant="top" src="./cerveza-artesanal.jpg" />
-          <Card.Body style={{ textAlign: "center" }}>
-            <Card.Title>Cerveza Rubia artesanal</Card.Title>
-            <Card.Text>Botella 500 ml</Card.Text>
+      <>
             <div id="contador">
-                <button type="button" class="btn btn-primary" onClick={restar}>
+                <button type="button" className="btn btn-primary" onClick={restar}>
                 -
                 </button>
                 <h4>{contador}</h4>
-                <button type="button" class="btn btn-primary" onClick={sumar}>
+                <button type="button" className="btn btn-primary" onClick={sumar}>
                 +
                 </button>
             </div>
-            <button type="button" class="btn btn-primary" onClick={agregarAlcarrito}>
-              Agregar al carrito
-            </button>
+            <div id="agregar-carrito">
+              <button type="button" className="btn btn-primary" onClick={agregarAlcarrito}>
+                Agregar al carrito
+              </button>
+            </div>
             <ToastContainer
               position="top-right"
               autoClose={2000}
@@ -53,8 +49,6 @@ export default function ItemCount({stock,initial,onAdd}) {
               rtl={false}
               draggable
             />
-          </Card.Body>
-        </Card>
-      </div>
+      </>
     );
 }

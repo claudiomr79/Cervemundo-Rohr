@@ -4,6 +4,12 @@
     box-sizing:border-box;
 }
 
+main {
+    padding: 1rem;
+    flex-grow: 1;
+    padding: 1rem;
+}
+
 ul{
     display: flex;
     background-color:white;
@@ -13,18 +19,33 @@ ul{
     flex-wrap: wrap;
     padding-top: 20px;
 }
+
+li{
+    padding: 4px;
+}
+
 #contador{
     display: flex;
     background-color:white;
     justify-content:space-between;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
-li{
-    padding: 4px;
-}
+
 #header{
     height: 10%;
 }
 
+ #agregar-carrito{
+    display: flex;
+    background-color:white;
+    justify-content:center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+footer{
+    padding: 0.5rem 0;
+    text-align: center;
+}

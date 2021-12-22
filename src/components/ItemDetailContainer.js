@@ -1,31 +1,33 @@
 import React, {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 
-//Al iniciar utilizando un efecto de montaje, debe llamar a un async mock, utilizando 
-//lo visto en la clase anterior con Promise, que en 2 segundos le devuelva un 1 ítem, y 
-//lo guarde en un estado propio.
-
-//uso productos ficticios para usar la una API, de la cual traigo un producto en particular
+const detalles = [
+    {id:1,title:"cerveza rubia 500 ml",price:100,stock:20,image:"/rubia.jpg"},
+    {id:2,title:"cerveza negra 500 ml",price:120,stock:20,image:"/negra.jpg"},
+    {id:3,title:"cerveza roja 500 ml",price:120,stock:20,image:"/roja.jpg"},
+    {id:4,title:"Barril cerveza rubia 30 l",price:1000,stock:20,image:"/barril 30l rubia.png"},
+    {id:5,title:"Barril cerveza negra 30 l",price:1100,stock:20,image:"/barril 30l negra.png"},
+    {id:6,title:"Barril cerveza roja 30 l",price:1200,stock:20,image:"/barril 30l roja.png"},
+]
 
 export default function ItemDetailContainer() {
-    const [item,setItem] = useState(null);
-    
-    const fetchApi = async ( ) => {
-        try {
-            const peticion = await fetch(`https://fakestoreapi.com/products/8`);
-            const data = await peticion.json();
-            setItem(data);
-            console.log(data);
-            }
-         catch (error) {
-            console.log(error);
-        }
-    }
+    const [item, setItem] = useState(null);
+    const {id} = useParams();
+
+    console.log('id:'+id);
     
     useEffect(() => {
-        fetchApi();
-       
-    }, [])
+        const promesa = new Promise((res,rej)=>{
+            setTimeout(() => {
+                res(detalles);
+            },2000)
+         })
+         promesa
+            .then(i => setItem(i[id-1]))
+            .catch(() => {console.log('Hubo una falla en la carga')});
+    }, [id])   
+
     return (
         <div>
             <ItemDetail item={item} />

@@ -5,8 +5,8 @@ export default function ItemList({items}) {
     return (
              <>
                 <ul>
-                   {items.map((item) =>
-                    (<li key={item.id} style={{listStyle:'none'}}><Item item={item} /></li>))}
+                   {items.map((item, id) =>
+                    (<li key={id} style={{listStyle:'none'}}><Item item={item} /></li>))}
                 </ul>
              </>
     )
