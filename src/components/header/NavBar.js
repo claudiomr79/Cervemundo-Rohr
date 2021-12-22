@@ -20,7 +20,9 @@ export const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
         <Nav as={NavLink} to="/search">
+            <a className="nav-link">
                 <i className="large material-icons"> search </i>
+            </a>
         </Nav>
         <Nav as={NavLink} to="/cart" style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}} >
             <CartWidget />
