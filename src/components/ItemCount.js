@@ -27,22 +27,22 @@ export default function ItemCount({stock,initial,onAdd}) {
     return (
       <>
             <div id="contador">
-                <button type="button" className="btn btn-primary" onClick={restar}>
+                <button type="button" className="btn btn-success" onClick={restar}>
                 -
                 </button>
                 <h4>{contador}</h4>
-                <button type="button" className="btn btn-primary" onClick={sumar}>
+                <button type="button" className="btn btn-success" onClick={sumar}>
                 +
                 </button>
             </div>
             <div id="agregar-carrito">
-              <button type="button" className="btn btn-primary" onClick={agregarAlcarrito}>
+              <button type="button" className="btn btn-success" onClick={agregarAlcarrito}>
                 Agregar al carrito
               </button>
             </div>
             <ToastContainer
               position="top-right"
-              autoClose={2000}
+              autoClose={1000}
                hideProgressBar={false}
               newestOnTop={false}
               closeOnClick

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card , Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 
@@ -13,6 +13,7 @@ export default function Item({item}) {
             <Card.Text>
               Precio: $ {item.price}
             </Card.Text>
+            <Button variant="primary">Ver detalles</Button>
           </Card.Body>
         </Card>
       </div>
