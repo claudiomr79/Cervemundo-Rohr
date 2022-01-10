@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Container , Nav} from 'react-bootstrap'
+import { Card, Container , Nav , Spinner} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import ItemCount from './ItemCount'
 import { useContexto } from "./myContext"
@@ -14,8 +14,11 @@ export default function ItemDetail({item}) {
    const { addItem } = useContexto()
 
    const onAdd = (quantityToAdd) => {
-    console.log('La quantityToAdd agregada es' + quantityToAdd);
+    console.log('La cantidad agregada es' + quantityToAdd);
     addItem(item,quantityToAdd)
+
+    console.log(item)
+
     setStock(stock-quantityToAdd)//lo uso ahora para simular
     setTimeout(() => {
         setMostrar(!mostrarCount)
@@ -26,7 +29,7 @@ export default function ItemDetail({item}) {
      <>
         {
             (mostrarCount) ? 
-             ((!item) ? <h6>Cargando...</h6> :
+             ((!item) ?  <Spinner animation="border" variant="primary" /> :
                 (
                 <Container  style={{padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                     <Card border="primary" style={{ width: "20rem"}}>

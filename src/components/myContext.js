@@ -9,23 +9,26 @@ export const useContexto = () => {
 
 const CustomProvider = ({children}) => {
    // const [precio_total,setPrecioTotal] = useState(0)
-    const [total_quantity,setTotalQuantity] = useState(0)
+    const [totalQuantity,setTotalQuantity] = useState(0)
     const [cart,setCart] = useState([])
 
     const addItem = (item,quantity) => {
-        console.log("Soy el provider")
 
         const product_copy = {...item}
         product_copy.quantity = quantity
-
-        setTotalQuantity(total_quantity + quantity)
-
-        (!isInCart) ? (
+        
+        setTotalQuantity((totalQuantity + quantity))
+        
+        if (!isInCart(item.id)){
             setCart([...cart, product_copy])
-        ):
-        (
-            setCart(cart)
-        )
+        }else{
+                cart.map(itemInCart =>  {
+                    if (itemInCart.id == item.id){
+                        itemInCart.quantity = itemInCart.quantity + quantity
+                        setCart(cart)
+                    }
+                })
+        }
     }
 
     const removeItem = (id) => {
@@ -34,6 +37,7 @@ const CustomProvider = ({children}) => {
 
     const clear = ( ) => {
         setCart([])
+        setTotalQuantity(0)
     }
     
     const isInCart = (id) => {
@@ -41,10 +45,10 @@ const CustomProvider = ({children}) => {
     }
 
     const valorDelContexto = {
-        total_quantity , 
-        cart , 
-        addItem , 
-        removeItem ,
+        totalQuantity, 
+        cart, 
+        addItem, 
+        removeItem,
         clear
     }
 

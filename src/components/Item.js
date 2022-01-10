@@ -13,7 +13,9 @@ export default function Item({item}) {
             <Card.Text>
               Precio: $ {item.price}
             </Card.Text>
-            <Button variant="primary">Ver detalles</Button>
+            <div style={{display: 'flex',justifyContent: 'center' }}>
+              <Button variant="primary">Comprar</Button>
+            </div>
           </Card.Body>
         </Card>
       </div>
