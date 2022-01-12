@@ -29,7 +29,10 @@ export default function ItemDetail({item}) {
      <>
         {
             (mostrarCount) ? 
-             ((!item) ?  <Spinner animation="border" variant="primary" /> :
+             ((!item) ? 
+                 <Container  style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Spinner  animation="border" variant="primary" />
+                 </Container> :
                 (
                 <Container  style={{padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                     <Card border="primary" style={{ width: "20rem"}}>

@@ -4,28 +4,43 @@ import {NavLink} from "react-router-dom"
 
 const Cart = () => {
     
-    const { cart, clear , removeItem } = useContexto()
+    const { cart, clear , removeItem, totalPrice } = useContexto()
     console.log(cart)
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             {cart.length > 0 ? (
                 <>
-                    <h2>Sus productos en el Carrito</h2>
+                    <h2 style={{backgroundColor:'lightGrey'}}>Sus productos en el Carrito</h2>
                     <ul style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                         {cart.map((product, index) => {
                             return (
-                                <li key={index} style={{listStyle: 'none', color: 'blue'}}>
-                                    <h5>
-                                        {product.title} == Precio unitario: ${product.price} == Cantidad: {product.quantity}
-                                    </h5>
+                                <li key={index} style={{listStyle: 'none'}}>
+                                    <h6>
+                                        <span style={{ color: 'red',padding: '8px'}}><b>{product.quantity}</b></span>
+                                        {product.title} 
+                                        <img src={product.image} style={{padding: '8px', width: '20%', height:'20%'}}></img>
+                                        ${product.price} 
+                                        <NavLink  style={{padding: '8px'}} to="/cart" onClick={() => removeItem(product.id,product.quantity,product.price)}>
+                                            <Button variant="danger">Eliminar Producto</Button>
+                                        </NavLink><hr/>
+                                    </h6>
                                 </li>
                             )
                         })}
                     </ul>
-                    <NavLink  to="/cart" onClick={clear}>
-                         <Button variant="primary">Vaciar carrito</Button>
-                    </NavLink>
+                    <div>
+                          <b>Precio Total $ 
+                          {totalPrice}
+                          </b>
+                        <hr/>
+                        <NavLink  style={{ padding: '8px'}} to="/" >
+                            <Button variant="primary">Seguir Comprando</Button>
+                        </NavLink>  
+                        <NavLink  to="/cart" onClick={clear}>
+                            <Button variant="primary">Vaciar carrito</Button>
+                        </NavLink>
+                    </div>
                 </>
             ) : (
                 <>

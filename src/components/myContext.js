@@ -8,7 +8,7 @@ export const useContexto = () => {
 }
 
 const CustomProvider = ({children}) => {
-   // const [precio_total,setPrecioTotal] = useState(0)
+    const [totalPrice,setTotalPrice] = useState(0)
     const [totalQuantity,setTotalQuantity] = useState(0)
     const [cart,setCart] = useState([])
 
@@ -18,7 +18,7 @@ const CustomProvider = ({children}) => {
         product_copy.quantity = quantity
         
         setTotalQuantity((totalQuantity + quantity))
-        
+        setTotalPrice((totalPrice + ((product_copy.price)*quantity)))
         if (!isInCart(item.id)){
             setCart([...cart, product_copy])
         }else{
@@ -31,13 +31,18 @@ const CustomProvider = ({children}) => {
         }
     }
 
-    const removeItem = (id) => {
-        setCart(cart.filter(item => item.id !== id));
+    const removeItem = (id,quantity,price) => {
+        let filtered_cart = cart.filter(item => item.id !== id);
+        setCart(filtered_cart);
+        setTotalQuantity(totalQuantity - quantity);
+        setTotalPrice(totalPrice - (quantity * price));
+
     }
 
     const clear = ( ) => {
         setCart([])
         setTotalQuantity(0)
+        setTotalPrice(0)
     }
     
     const isInCart = (id) => {
@@ -45,6 +50,7 @@ const CustomProvider = ({children}) => {
     }
 
     const valorDelContexto = {
+        totalPrice,
         totalQuantity, 
         cart, 
         addItem, 

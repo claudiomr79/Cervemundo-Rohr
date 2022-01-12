@@ -9,8 +9,22 @@ export const CartWidget = () => {
     <div>
         <span className="nav-link">
             <i className="large material-icons"> shopping_cart </i>
-            { totalQuantity }
-        </span>
+            {(totalQuantity) ? 
+                  (<span style={{ position: 'relative',
+                                  bottom: '8px',
+                                  right:'8px',
+                                  background: 'red',
+                                  width: '6px',
+                                  height: '6px',
+                                  borderRadius: '100%',
+                                  color: 'white',
+                                  padding: '5px',
+                                  margin: '5px'}}>
+      {(totalQuantity)}
+      </span>) : (null)
+            }
+            
+        </span>    
     </div>
   );
 }
