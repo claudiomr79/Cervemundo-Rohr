@@ -14,8 +14,8 @@ export const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown title="Tipos de productos">
-              <NavDropdown.Item as={NavLink} to="/category/1">Cerveza en botellas</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/category/2">Barril de 30l</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/botella">Cerveza en botellas</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/barril">Barril de 30l</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

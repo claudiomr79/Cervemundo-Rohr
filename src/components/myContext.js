@@ -23,7 +23,7 @@ const CustomProvider = ({children}) => {
             setCart([...cart, product_copy])
         }else{
                 cart.map(itemInCart =>  {
-                    if (itemInCart.id == item.id){
+                    if (itemInCart.id === item.id){
                         itemInCart.quantity = itemInCart.quantity + quantity
                         setCart(cart)
                     }
