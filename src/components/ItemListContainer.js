@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import ItemList from './ItemList'
 import { db } from './firebase'
-import { getDocs, query, collection , where } from 'firebase/firestore'
+import { getDocs, query, collection , where , orderBy} from 'firebase/firestore'
 
 
 export const ItemListContainer = () => {
@@ -24,7 +24,7 @@ export const ItemListContainer = () => {
        
        if (name) {
 
-        const consult = query(productsCollection,where("category","==",name),where("price","<",2500))
+        const consult = query(productsCollection,where("category","==",name),orderBy("price"))
         getDocs(consult)
             .then(({ docs }) => {
                 setList(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
@@ -34,8 +34,9 @@ export const ItemListContainer = () => {
             })
 
     } else {
+        const consult = query(productsCollection,orderBy("price"))
 
-        getDocs(productsCollection)
+        getDocs(consult)
             .then(({ docs }) => {
                 setList(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
             })

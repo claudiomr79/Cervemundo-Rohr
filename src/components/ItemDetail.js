@@ -36,7 +36,7 @@ export default function ItemDetail({item}) {
                 (
                 <Container  style={{padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                     <Card border="primary" style={{ width: "20rem"}}>
-                    <Card.Img variant="top" src={item.image} height="250px" />
+                    <Card.Img variant="top" src={item.pictureUrl} height="250px" />
                     <Card.Body 
                     style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                         <Card.Title>{item.title}</Card.Title>
@@ -56,13 +56,17 @@ export default function ItemDetail({item}) {
                 ))
                  :
                 (
-                        <Container style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                            <span>Termine su compra</span><br/>
-                            <Nav as={ NavLink } to="/cart" >
+                        <Container style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Nav  style={{ padding: '8px'}} as={ NavLink } to="/" >
                             <button type="submit" className="btn btn-primary">
-                                Terminar compra
+                                Seguir comprando
                              </button>         
                             </Nav>        
+                            <Nav as={ NavLink } to="/cart" >
+                            <button type="submit" className="btn btn-primary">
+                                Ir al carrito
+                             </button>         
+                            </Nav>    
                         </Container>
                 )
         }

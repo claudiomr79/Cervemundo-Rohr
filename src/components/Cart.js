@@ -19,7 +19,7 @@ const Cart = () => {
                                     <h6>
                                         <span style={{ color: 'red',padding: '8px'}}><b>{product.quantity}</b></span>
                                         {product.title} 
-                                        <img src={product.image} style={{padding: '8px', width: '20%', height:'20%'}}></img>
+                                        <img src={product.pictureUrl} style={{padding: '8px', width: '20%', height:'20%'}}></img>
                                         ${product.price} 
                                         <NavLink  style={{padding: '8px'}} to="/cart" onClick={() => removeItem(product.id,product.quantity,product.price)}>
                                             <Button variant="danger">Eliminar Producto</Button>
@@ -40,6 +40,9 @@ const Cart = () => {
                         <NavLink  to="/cart" onClick={clear}>
                             <Button variant="primary">Vaciar carrito</Button>
                         </NavLink>
+                        <NavLink  style={{ padding: '8px'}} to="/" >
+                            <Button variant="primary">Terminar compra</Button>
+                        </NavLink>  
                     </div>
                 </>
             ) : (
