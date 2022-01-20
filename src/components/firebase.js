@@ -13,7 +13,6 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig)
 
-
   export const db = getFirestore(app)
 //1)obtener una referencia a la db
 //2)obtener una referencia a la coleccion

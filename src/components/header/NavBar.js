@@ -6,10 +6,13 @@ import {   NavLink } from 'react-router-dom'
 export const NavBar = () => {
   return (
     <div id="header">
-      <Navbar fixed="top" className="px-2" collapseOnSelect expand="lg" variant="dark" bg="primary">
+      <Navbar fixed="top"className="px-2" collapseOnSelect expand="lg" variant="dark" bg="primary">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand as={NavLink} to="/">
-            CerveMundo
+                <span>
+                    <i className="material-icons"> sports_bar </i>
+                    Cervemundo
+                </span>
         </Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">

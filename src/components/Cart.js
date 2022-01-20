@@ -1,6 +1,7 @@
 import { useContexto } from "./myContext"
 import {Button} from "react-bootstrap"
 import {NavLink} from "react-router-dom"
+import CartForm from "./CartForm"
 
 const Cart = () => {
     
@@ -40,10 +41,8 @@ const Cart = () => {
                         <NavLink  to="/cart" onClick={clear}>
                             <Button variant="primary">Vaciar carrito</Button>
                         </NavLink>
-                        <NavLink  style={{ padding: '8px'}} to="/" >
-                            <Button variant="primary">Terminar compra</Button>
-                        </NavLink>  
-                    </div>
+                        <CartForm/>
+                    </div>    
                 </>
             ) : (
                 <>

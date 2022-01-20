@@ -35,8 +35,8 @@ export default function ItemDetail({item}) {
                  </Container> :
                 (
                 <Container  style={{marginTop:'50px' ,padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    <Card border="primary" style={{ width: "20rem"}}>
-                    <Card.Img variant="top" src={item.pictureUrl} height="500px" />
+                    <Card border="primary">
+                    <Card.Img src={item.pictureUrl} style={{margin: 'auto', width: '20%', height:'20%'}} />
                     <Card.Body 
                     style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                         <Card.Title>{item.title}</Card.Title>
