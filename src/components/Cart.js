@@ -48,7 +48,7 @@ const Cart = () => {
             ) : (
                 <>
                     <h2>No hay productos en el carrito</h2>
-                    <NavLink  to="/" >
+                    <NavLink style={{ marginTop: '100px'}} to="/" >
                          <Button variant="primary">Ir a comprar</Button>
                     </NavLink>     
                 </>

@@ -6,7 +6,7 @@ import {   NavLink } from 'react-router-dom'
 export const NavBar = () => {
   return (
     <div id="header">
-      <Navbar className="px-2" collapseOnSelect expand="lg" variant="dark" bg="primary">
+      <Navbar fixed="top" className="px-2" collapseOnSelect expand="lg" variant="dark" bg="primary">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand as={NavLink} to="/">
             CerveMundo
@@ -15,6 +15,7 @@ export const NavBar = () => {
           <Nav className="ms-auto">
             <NavDropdown title="Tipos de productos">
               <NavDropdown.Item as={NavLink} to="/category/botella">Cerveza en botellas</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/lata">Cerveza en Latas</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/category/barril">Barril de 30l</NavDropdown.Item>
             </NavDropdown>
           </Nav>
