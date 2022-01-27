@@ -4,9 +4,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ItemCount({stock,initial,onAdd}) {
-    let [contador, setContador] = useState(initial); //manejo de estado
+    let [contador, setContador] = useState(initial); 
 
-    const notify = (contador) => toast.info(`Agregado al carrito ${contador} unidades`);//toast
+    const notify = (contador) => toast.info(`Agregado al carrito ${contador} unidades`);
     
     const sumar = () => {
         if (contador < stock)

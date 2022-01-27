@@ -1,12 +1,10 @@
 import { useContexto } from "./myContext"
 import {Button} from "react-bootstrap"
 import {NavLink} from "react-router-dom"
-import CartForm from "./CartForm"
 
 const Cart = () => {
     
     const { cart, clear , removeItem, totalPrice } = useContexto()
-    console.log(cart)
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
@@ -35,13 +33,17 @@ const Cart = () => {
                           {totalPrice}
                           </b>
                         <hr/>
-                        <NavLink  style={{ padding: '8px'}} to="/" >
-                            <Button variant="primary">Seguir Comprando</Button>
-                        </NavLink>  
-                        <NavLink  to="/cart" onClick={clear}>
-                            <Button variant="primary">Vaciar carrito</Button>
-                        </NavLink>
-                        <CartForm/>
+                        <div style={{margin:'1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center',flexWrap:'wrap'}}>
+                            <NavLink id="botones-sep" to="/" >
+                                <Button variant="primary">Seguir Comprando</Button>
+                            </NavLink>  
+                            <NavLink id="botones-sep" to="/cart" onClick={clear}>
+                                <Button variant="primary">Vaciar carrito</Button>
+                            </NavLink>
+                            <NavLink id="botones-sep" to="/form">
+                                <Button variant="primary">Terminar Compra</Button>
+                            </NavLink>
+                        </div>
                     </div>    
                 </>
             ) : (

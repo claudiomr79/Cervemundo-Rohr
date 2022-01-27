@@ -33,6 +33,11 @@ li{
     flex-wrap: nowrap;
 }
 
+#botones-sep{
+   margin-left: 1rem;
+   margin-bottom: 1rem;
+}
+
 #header{
     height: 10%;
 }

@@ -1,4 +1,3 @@
-//Importas la funcion de incializacion de la app
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 
@@ -14,5 +13,3 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig)
 
   export const db = getFirestore(app)
-//1)obtener una referencia a la db
-//2)obtener una referencia a la coleccion

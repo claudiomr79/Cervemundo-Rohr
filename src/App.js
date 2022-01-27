@@ -1,13 +1,13 @@
 import { NavBar } from "./components/header/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer"
-import 'bootswatch/dist/journal/bootstrap.min.css'; //bootswatch
+import 'bootswatch/dist/journal/bootstrap.min.css'; 
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import  Cart  from "./components/Cart"
-import Search from "./components/Search"
 import CustomProvider , {Provider} from './components/myContext'
-
+import CartForm from "./components/CartForm";
+import { PageNotFound } from "./components/PageNotFound";
 
 const App = () => (
   <CustomProvider>
@@ -19,7 +19,8 @@ const App = () => (
             <Route path="/category/:name" element={ <ItemListContainer /> }/>
             <Route path="/item/:id" element={ <ItemDetailContainer />  }  />
             <Route path="/cart" element={ <Cart /> }  />
-            <Route path="/search" element={ <Search /> }  />
+            <Route path="/form" element={ <CartForm /> } />
+            <Route path="*" element={ <PageNotFound />}  />
           </Routes>
         </main>
         <Footer />
