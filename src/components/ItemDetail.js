@@ -37,14 +37,14 @@ export default function ItemDetail({item}) {
      <>
         {
             (mostrarCount) ? 
-            (<Container  style={{marginTop:'50px' ,padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Card border="primary">
-                <Card.Img src={item.pictureUrl} style={{margin: 'auto', width: '20%', height:'20%'}} />
-                <Card.Body 
-                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            (<Container className="mt-1 pt-5 d-flex flex-column justify-content-center align-items-center">
+                <Card>
+                <Card.Img src={item.pictureUrl} className="mx-auto w-auto" />
+                <Card.Body className="d-flex flex-column justify-content-center align-items-center">
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text style={{color: 'red'}}>
-                    Precio: $ {item.price}
+                    <Card.Text>
+                    Descripcion: {item.description}
+                    <div className="d-flex flex-row justify-content-center h4"> $ {item.price}</div>
                     </Card.Text>
                     <Card.Footer>
                         <div>
@@ -56,8 +56,8 @@ export default function ItemDetail({item}) {
                 </Card>
             </Container>)
                         :
-            (<Container style={{marginTop: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
-                    <Nav  style={{ padding: '8px'}} as={ NavLink } to="/" >
+            (<Container className="mt-5 d-flex flex-column justify-content-end align-items-center">
+                    <Nav  className="p-2" as={ NavLink } to="/" >
                     <button type="submit" className="btn btn-primary">
                         Seguir comprando
                      </button>         

@@ -58,14 +58,14 @@ const CartForm = () => {
             </div>
             ) :
             (
-             <div className="m-2 p-5 d-flex flex-column align-items-start" >
-                <h2><b>Datos de la Compra:</b></h2>
+             <div className="m-1 p-5 d-flex flex-column align-items-start" >
+                <h5><b>Gracias por su Compra, Sr {name}</b></h5>
                 <br/>
                 <div className="m-0 p-1">
-                    Nombre: {name}<br/>
-                    Telefono: {phone}<br/>
-                    Mail: {email}<br/>
-                    Total: {totalPrice}<br/>
+                    <b>Sus Datos:</b><br/>
+                    <b>Telefono:</b> {phone}<br/>
+                    <b>EMail:</b> {email}<br/>
+                   <b>Total: ${totalPrice}</b><br/>
                 </div>
                 <div className=" border border-2 border-primary">
                     <b>Id de la compra: {idSale}</b>

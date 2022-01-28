@@ -50,6 +50,15 @@ li{
     flex-wrap: nowrap;
 
 }
+
+#item{
+    transition: 'all 0.4s ease';
+}
+
+#item:hover{
+    transform: scale(1.05);
+}
+
 footer{
     padding: 0.5rem 0;
     text-align: center;

@@ -7,20 +7,20 @@ const Cart = () => {
     const { cart, clear , removeItem, totalPrice } = useContexto()
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="p-5 d-flex flex-column justify-content-center align-items-center">
             {cart.length > 0 ? (
                 <>
-                    <h2 style={{backgroundColor:'lightGrey'}}>Sus productos en el Carrito</h2>
-                    <ul style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h4>Sus productos en el Carrito</h4>
+                    <ul className="d-flex flex-column justify-content-center align-items-center">
                         {cart.map((product, index) => {
                             return (
                                 <li key={index} style={{listStyle: 'none'}}>
                                     <h6>
-                                        <span style={{ color: 'red',padding: '8px'}}><b>{product.quantity}</b></span>
+                                        <span className="p-1" style={{ color: 'red'}}><b>{product.quantity}</b></span>
                                         {product.title} 
-                                        <img src={product.pictureUrl} style={{padding: '8px', width: '20%', height:'20%'}}></img>
+                                        <img src={product.pictureUrl} className="p-1" style={{ width: '20%', height:'20%'}}></img>
                                         ${product.price} 
-                                        <NavLink  style={{padding: '8px'}} to="/cart" onClick={() => removeItem(product.id,product.quantity,product.price)}>
+                                        <NavLink  className="p-2" to="/cart" onClick={() => removeItem(product.id,product.quantity,product.price)}>
                                             <Button variant="danger">Eliminar Producto</Button>
                                         </NavLink><hr/>
                                     </h6>
@@ -33,7 +33,7 @@ const Cart = () => {
                           {totalPrice}
                           </b>
                         <hr/>
-                        <div style={{margin:'1rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center',flexWrap:'wrap'}}>
+                        <div className="m-1 d-flex flex-row justify-content-around align-items-center flex-wrap">
                             <NavLink id="botones-sep" to="/" >
                                 <Button variant="primary">Seguir Comprando</Button>
                             </NavLink>  
@@ -48,8 +48,8 @@ const Cart = () => {
                 </>
             ) : (
                 <>
-                    <h2>No hay productos en el carrito</h2>
-                    <NavLink style={{ marginTop: '100px'}} to="/" >
+                    <h4>No hay productos en el carrito</h4>
+                    <NavLink className="p-4" to="/" >
                          <Button variant="primary">Ir a comprar</Button>
                     </NavLink>     
                 </>
