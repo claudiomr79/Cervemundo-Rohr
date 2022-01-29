@@ -4,10 +4,10 @@ import 'bootswatch/dist/journal/bootstrap.min.css';
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import  Cart  from "./components/Cart"
-import CustomProvider , {Provider} from './components/myContext'
-import CartForm from "./components/CartForm";
-import { PageNotFound } from "./components/PageNotFound";
+import  Cart  from "./components/cart/Cart"
+import CustomProvider  from './components/context/myContext'
+import CartForm from "./components/cart/CartForm";
+import { PageNotFound } from "./components/pageNotFound/PageNotFound";
 
 const App = () => (
   <CustomProvider>

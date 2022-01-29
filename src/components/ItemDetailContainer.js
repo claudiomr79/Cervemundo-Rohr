@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import { collection, doc, getDoc } from "firebase/firestore"
-import { db } from "./firebase"
+import { db } from "./firebase/firebase"
 import ItemDetail from './ItemDetail'
-import Loader from './Loader'
+import Loader from './loader/Loader'
 
 export default function ItemDetailContainer() {
     const { id } = useParams();

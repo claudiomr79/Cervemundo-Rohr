@@ -1,33 +1,21 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { Card, Container , Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import ItemCount from './ItemCount'
-import { useContexto } from "./myContext"
-import { collection, doc, updateDoc } from "firebase/firestore"
-import { db } from "./firebase"
-
+import { useContexto } from "./context/myContext"
 
 export default function ItemDetail({item}) {
     const { addItem } = useContexto()
-  
+
    let [stock,setStock]= useState(item.stock);
    let [mostrarCount, setMostrar] = useState(true);
     
-   let id= item.id;
 
-   useEffect(() => {
-    const productsCollection = collection(db, "products")
-    const refDoc = doc(productsCollection, id)
-    
-    updateDoc(refDoc, {
-        "stock": stock
-    });
-   }, [stock]);
-   
 
+  
    const onAdd = (quantityToAdd) => {
     addItem(item,quantityToAdd)
-    setStock(stock-quantityToAdd)
+    setStock(stock)
     setTimeout(() => {
         setMostrar(!mostrarCount)
     }, 1500);
@@ -49,7 +37,7 @@ export default function ItemDetail({item}) {
                     <Card.Footer>
                         <div>
                             <ItemCount stock={stock} initial={1} onAdd={onAdd}/> 
-                            <small>{`Quedan ${stock} unidades en stock!`}</small>
+                            <small>{`Quedan ${item.stock} unidades en stock!`}</small>
                         </div>
                     </Card.Footer>
                 </Card.Body>

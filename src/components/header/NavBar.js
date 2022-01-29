@@ -1,5 +1,5 @@
 import React from 'react';
-import { CartWidget } from '../CartWidget';
+import { CartWidget } from './CartWidget';
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import {   NavLink } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ export const NavBar = () => {
                 </span>
         </Navbar.Brand>
           <Nav className="ms-auto">
-            <NavDropdown title="Productos">
+            <NavDropdown title="categorias">
               <NavDropdown.Item as={NavLink} to="/category/botella">Cerveza en botellas</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/category/lata">Cerveza en Latas</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/category/barril">Barril de 30l</NavDropdown.Item>
