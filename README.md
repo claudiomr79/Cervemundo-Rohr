@@ -2,7 +2,7 @@
 
 ## Proyecto final del curso ReactJs en CoderHouse camada 19770
 
-Deploy: [cervemundo.netlify.app](cervemundo.netlify.app)
+Deploy: [cervemundo.netlify.app](https://cervemundo.netlify.app/)
 
  Soy Claudio Rohr, realicé éste proyecto para el curso de React de CoderHouse.
 
