@@ -1,6 +1,6 @@
 # Cervemundo
 
-##Proyecto final del curso ReactJs en CoderHouse camada 19770
+## Proyecto final del curso ReactJs en CoderHouse camada 19770
 
 Deploy: [cervemundo.netlify.app](cervemundo.netlify.app)
 
@@ -17,12 +17,12 @@ Se usó firestore como base de datos, que es un servicio de Firebase, para persi
 
 
 
-###Una muestra de funcionamiento de la app
-![](public\cervemundo1.gif)
-###Orden guardada en firestore
-![](public\firestore.gif)
+### Una muestra de funcionamiento de la app
+![Cervemundo](https://github.com/claudiomr79/Cervemundo-Rohr/blob/main/public/cervemundo1.gif)
+### Orden guardada en firestore
+![Firestore](https://github.com/claudiomr79/Cervemundo-Rohr/blob/main/public/firestore.gif)
 
-###Instalación y puesta en marcha
+### Instalación y puesta en marcha
 
 Primero hay que clonar el repositorio:
 > git clone https://github.com/claudiomr79/Cervemundo-Rohr.git
@@ -38,7 +38,7 @@ Luego de ésto:
 
 y la app estará corriendo.
 
-##Dependencias instaladas :
+## Dependencias instaladas :
 
   *  bootswatch (tema para bootstrap)
   *  firebase
