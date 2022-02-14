@@ -2,7 +2,7 @@ import React, {useState , useEffect } from 'react'
 import { useContexto } from "../context/myContext"
 import { addDoc, collection , serverTimestamp, doc, updateDoc} from "firebase/firestore"
 import { db } from "../firebase/firebase"
-import { Button } from "react-bootstrap"
+import { Button , Form , Row , Col } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 
 const CartForm = () => {
@@ -12,6 +12,18 @@ const CartForm = () => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [idSale, setIdSale] = useState('');
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+    }else{
+        handleBuy();
+        setValidated(true);
+    }
+    };
 
     const saveName = e => {
         const input = e.target;
@@ -29,50 +41,77 @@ const CartForm = () => {
         setEmail(valor);
       };
 
-      const handleBuy = () => {
-        
+      const handleBuy = async () => {
           const buyer = { name: name, mail: email, phone: phone };
           const total = totalPrice;
           const date = serverTimestamp();
           const carts= cart;
           const sales = collection(db, 'orders')
-          addDoc(sales, { buyer, carts, date, total })
+          await addDoc(sales, { buyer, carts, date, total })
             .then((result)=>{
                 setIdSale(result.id)
             });
-        
-      };
-
-      useEffect(() => {
-        
-        const productsCollection = collection(db, "products")
-        cart.forEach((item) =>{
+         const productsCollection = collection(db, "products")
+         cart.forEach((item) =>{
             const refDoc = doc(productsCollection, item.id)
             updateDoc(refDoc, {
                 "stock": item.stock - item.quantity
             });
         })
-       
-       }, []);
+      };
+
 
     return (
         <>
-            {!idSale ?  
+            {!validated ?
             (
-            <div className="mt-1 p-5 d-flex flex-column justify-content-center align-items-center">
+            <div className="mt-1 p-5">
                 <span>
-                    <h2>Ingrese sus datos</h2>
-                    <input type="text" placeholder="Nombre" onChange={saveName}/><br/><br/>
-                    <input type="number" placeholder="Phone" onChange={savePhone}/><br/><br/>
-                    <input type="email" placeholder="Email" onChange={saveEmail}/><br/><br/>
-                    <Button  variant="primary" onClick={()=>{handleBuy()}}>Terminar compra</Button>
+                    <div className="p-2">
+                       <h2>Ingrese sus datos</h2>
+                    </div>
+                         <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="4" controlId="validationCustom03">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control
+                                    type="text"
+                                    placeholder="Nombre"
+                                    defaultValue=""
+                                    onChange={saveName}
+                                    required
+                                    />
+                                    <Form.Control.Feedback>Bien!</Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="3" controlId="phone">
+                                    <Form.Label>Telefono</Form.Label>
+                                    <Form.Control type="number" placeholder="telefono" onChange={savePhone} required/>
+                                    <Form.Control.Feedback type="invalid">
+                                    Por favor ingrese un telefono válido.
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="3" controlId="email">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email" placeholder="email" onChange={saveEmail} required />
+                                    <Form.Control.Feedback type="invalid">
+                                    Por favor ingrese un email válido.
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Button type="submit">Terminar compra</Button>
+                        </Form>
                 </span>
             </div>
             ) :
             (
              <div className="m-1 p-5 d-flex flex-column align-items-start" >
-                <h5><b>Gracias por su Compra, Sr {name}</b></h5>
-                <br/>
+                <div className="p-2">
+                     <h5><b>Gracias por su Compra, Sr {name}</b></h5>
+                </div>
                 <div className="m-0 p-1">
                     <b>Sus Datos:</b><br/>
                     <b>Telefono:</b> {phone}<br/>
@@ -92,3 +131,4 @@ const CartForm = () => {
 }
 
 export default CartForm
+
