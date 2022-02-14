@@ -57,7 +57,6 @@ En el futuro, se harán las siguientes mejoras:
 
 - Implementación de login de usuarios.
 - Implementar pasarela de pagos.
-- Hacer validaciones en el formulario de carga de datos del comprador.
 - Implementar el uso de localstorage para que no se pierda el carrito cuando se recarga la página.
 
 
