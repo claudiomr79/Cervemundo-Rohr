@@ -13,16 +13,19 @@ const CartForm = () => {
     const [email, setEmail] = useState('');
     const [idSale, setIdSale] = useState('');
     const [validated, setValidated] = useState(false);
-
+    const [finished, setFinished] = useState(true)
+    
     const handleSubmit = (event) => {
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
+        setFinished(false);
     }else{
         handleBuy();
-        setValidated(true);
+        setFinished(true);
     }
+    setValidated(true);
     };
 
     const saveName = e => {
@@ -60,10 +63,9 @@ const CartForm = () => {
         })
       };
 
-
     return (
         <>
-            {!validated ?
+            {!(finished && name && phone && email && validated) ?
             (
             <div className="mt-1 p-5">
                 <span>
@@ -72,7 +74,7 @@ const CartForm = () => {
                     </div>
                          <Form noValidate validated={validated} onSubmit={handleSubmit}>
                             <Row className="mb-3">
-                                <Form.Group as={Col} md="4" controlId="validationCustom03">
+                                <Form.Group as={Col} md="4" controlId="name">
                                     <Form.Label>Nombre</Form.Label>
                                     <Form.Control
                                     type="text"
@@ -108,22 +110,21 @@ const CartForm = () => {
             </div>
             ) :
             (
-             <div className="m-1 p-5 d-flex flex-column align-items-start" >
-                <div className="p-2">
-                     <h5><b>Gracias por su Compra, Sr {name}</b></h5>
+             <div className="m-1 p-5 d-flex align-items-center justify-content-center" >
+                <div className="d-flex flex-column align-items-start justify-content-center">
+                    <span className="p-2">
+                        <h5><b>Gracias por su Compra, Sr {name}</b></h5>
+                    </span>
+                        <span className="m-0 p-1"><b>Telefono:</b> {phone}</span>
+                        <span className="m-0 p-1"><b>EMail:</b> {email}</span>
+                        <span className="m-0 p-1"><b>Total: ${totalPrice}</b></span>
+                    <span className="h3 border border-2 border-primary">
+                        <b>Id de la compra: {idSale}</b>
+                    </span>
+                    <NavLink  className="p-2" to="/" onClick={clear}>
+                        <Button variant="primary">Volver</Button>
+                    </NavLink>
                 </div>
-                <div className="m-0 p-1">
-                    <b>Sus Datos:</b><br/>
-                    <b>Telefono:</b> {phone}<br/>
-                    <b>EMail:</b> {email}<br/>
-                   <b>Total: ${totalPrice}</b><br/>
-                </div>
-                <div className=" border border-2 border-primary">
-                    <b>Id de la compra: {idSale}</b>
-                </div>
-                <NavLink  className="p-2" to="/" onClick={clear}>
-                     <Button variant="primary">Volver</Button>
-                </NavLink>
             </div>
             )}
         </>

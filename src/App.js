@@ -1,6 +1,6 @@
 import { NavBar } from "./components/header/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer"
-import 'bootswatch/dist/journal/bootstrap.min.css'; 
+import 'bootswatch/dist/spacelab/bootstrap.min.css'; 
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
